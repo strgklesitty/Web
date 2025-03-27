@@ -1,0 +1,27 @@
+body{
+  font-style:italic;
+  font-size: small;
+  font-family: Georgia,"times New Roman";
+  line-height:1.9em;
+}
+
+.guarantee {
+  border-color:white;
+  border-width:1px;
+  border-style:dashed;
+  background-color:#a7cece;
+  padding:25px;
+  margin:30px;
+}
+
+h1,h2{
+  color: #444;;
+}
+
+h1{
+  font-size: 1.5em;
+}
+
+h2{
+  font-size: 1.3em;
+}
