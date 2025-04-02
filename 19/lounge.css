@@ -58,3 +58,10 @@ h2{
   color: #a897a8;
 }
 
+.cd {
+  font-style: italic;
+}
+
+.artist {
+  font-weight: bold;
+}
