@@ -1,0 +1,101 @@
+body{
+  font-style:italic;
+  font-size: small;
+  font-family: Georgia,"times New Roman";
+  line-height:1.9em;
+}
+
+.guarantee {
+  border-color:white;
+  border-width:1px;
+  border-style:dashed;
+  background-color:aquamarine;
+  margin:30px;
+  background-image:url(images/background.gif) ;
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 25px;
+  padding-left: 80px;
+  margin-right: 250px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  
+}
+
+
+.Elixirs{
+  border-width: thin;
+  border-style: solid;
+  border-color: #007e7e;
+  width:200px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin-left: 20px;
+  background-image: url(images/cocktail.gif);
+  background-repeat: repeat-x;
+  text-align: center;
+  line-height: 1;
+}
+
+
+h1,h2{
+  color: #007e7e;
+}
+
+h1{
+  font-size: 1.5em;
+}
+
+h2{
+  font-size: 1.3em;
+}
+.Elixirs h2{
+  color: black;
+}
+
+.Elixirs > h3{
+  color: #a897a8;
+}
+
+.cd {
+  font-style: italic;
+}
+
+.artist {
+  font-weight: bold;
+}
+
+.Elixirs a:link{
+  color:#007e7e
+}
+
+.Elixirs a:visited{
+  color:#333333;
+}
+
+.Elixirs a:hover{
+  background: #f88296;
+  color:#0d5353;
+}
+
+.test{
+  color:gold;
+}
+
+
+.p{
+  color:cadetblue;
+}
+
+.body p{
+  color:bisque;
+}
+
+.p.cname{
+  color:coral;
+}
+
+.p#iname{
+  color:darkcyan;
+}
