@@ -1,0 +1,321 @@
+/* 全局样式 - 采用 PS 官网背景色（更接近实际官网的浅灰） */
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f4; /* 比原#f5f7fa更接近官网实际背景 */
+}
+
+/* 核心容器样式 - 轻量卡片设计（PS官网典型容器） */
+.section {
+    padding: 2.5rem; /* 增大内边距（原2rem→40px） */
+    margin: 2.5rem auto;
+    max-width: 1440px; 
+    background-color: #ffffff;
+    border-radius: 16px; /* 增大圆角（原12px→16px） */
+    box-shadow: 0 2px 8px rgba(0, 35, 102, 0.08); /* 更接近官网的柔和阴影（带品牌色倾向） */
+}
+
+/* 图片块样式 - 恢复全宽显示（PS官网图片占满容器） */
+.media-block__img {
+    max-width: 100%; /* 恢复全宽（原80%→100%） */
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9; 
+    object-fit: cover; 
+    /* 移除margin:0 auto（官网图片左对齐） */
+}
+
+/* 图片悬停效果 - 更细腻的交互（PS官网典型悬停） */
+.imageblock a {
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); /* 更顺滑的过渡函数 */
+}
+
+/* 图片悬停效果 - 日版官网更柔和的动画 */
+.imageblock a:hover {
+    transform: translateY(-4px); /* 调整为日版更保守的上移距离 */
+    box-shadow: 0 4px 16px rgba(0, 114, 206, 0.12); /* 阴影更浅更扩散 */
+}
+
+/* 图片加载占位 - 模拟日版官网灰色占位 */
+.media-block__img {
+    background-color: #f0f2f4; /* 与页面背景一致的占位色 */
+    min-height: 300px; /* 确保图片加载前有高度 */
+}
+
+/* 文本标题 - 匹配官网标题样式 */
+.txt-block-title {
+    font-size: 2rem; /* 增大标题字号（原1.75rem→32px） */
+    font-weight: 800; /* 加粗字体（原700→800） */
+    color: #0072ce; 
+    line-height: 1.1; /* 更紧凑的行高（原1.2→1.1） */
+    margin-bottom: 1.5rem; /* 增大底部间距（原1rem→24px） */
+    background: linear-gradient(135deg, #01BBEF 0%, #0074BC 100%); /* 添加PS官网标题渐变 */
+    -webkit-background-clip: text; /* 文字填充渐变 */
+    background-clip: text;
+    color: transparent; /* 关键：使文字颜色透明以显示背景渐变 */
+}
+
+/* SVG 图标 - 匹配官网渐变填充 */
+.icon svg {
+    width: 100%;
+    max-width: 240px; /* 增大图标最大宽度（原200px→240px） */
+    height: auto;
+    fill: url(#svg-def-45-ps_store_light_theme-a); /* 直接使用HTML中已有的渐变定义 */
+}
+
+/* 双列布局间距 - 增大列间距（更符合官网内容密度） */
+/* 优化两列布局容器（日版PS官网典型双列结构） */
+.content-grid.layout__2--c {
+    display: grid; /* 显式声明网格布局 */
+    grid-template-columns: 1fr 1fr; /* 左右各占1份空间 */
+    gap: 2rem; /* 列间距（与移动端保持一致） */
+    align-items: center; /* 垂直居中对齐 */
+}
+
+/* 图片块容器样式（日版官网图片区域边距） */
+.box.mr-ls[class*="@desktop--neg-2xs"] {
+    padding-right: 1rem; /* 右侧内边距避免内容紧贴 */
+}
+
+/* 文本块容器样式（日版官网文字区域边距） */
+.box--light {
+    padding-left: 1rem; /* 左侧内边距避免内容紧贴 */
+}
+
+/* 移动端适配（保持原有逻辑） */
+@media (max-width: 768px) {
+    .content-grid.layout__2--c {
+        grid-template-columns: 1fr; 
+    }
+    /* 建议补充内边距重置 */
+    .box.mr-ls[class*="@desktop--neg-2xs"],
+    .box--light {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+
+/* 调整带 +reverse 类的双列布局顺序 */
+.content-grid.layout__2--c[class*="+reverse"] {
+    /* 保持两列布局 */
+    grid-template-columns: 1fr 1fr;
+}
+
+/* 图片块在反向布局中排第二 */
+.content-grid.layout__2--c[class*="+reverse"] > .box[class*="mr-ls@desktop--neg-2xs"] {
+    order: 2; /* 默认order为0，设置为2使其排在后面 */
+}
+
+/* 文本块在反向布局中排第一 */
+.content-grid.layout__2--c[class*="+reverse"] > .box--light {
+    order: 1; /* 设置为1使其排在前面 */
+}
+
+/* 移动端重置order，保持上下排列 */
+@media (max-width: 768px) {
+    .content-grid.layout__2--c > .box[class*="mr-ls@desktop--neg-2xs"],
+    .content-grid.layout__2--c > .box--light {
+        order: initial; /* 重置为默认顺序 */
+    }
+}
+
+/* 图片块样式 - 强化视觉焦点 */
+.imageblock a {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px; /* 图片链接圆角 */
+    overflow: hidden; /* 防止图片溢出圆角 */
+    transition: transform 0.2s ease; /* 添加悬停动画 */
+}
+
+.imageblock a:hover {
+    transform: translateY(-4px); /* 悬停上移效果 */
+}
+
+.media-block__img {
+    max-width: 80%; /* 缩小图片为父容器宽度的80% */
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9; /* 固定图片宽高比（PS官网常见比例） */
+    object-fit: cover; /* 防止图片变形 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+/* ========== 轮播核心容器 ========== */
+.simple-carousel {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    overflow: hidden; /* 隐藏溢出的轮播项 */
+}
+
+/* Flickity 视口（确保高度正确） */
+.flickity-viewport {
+    height: 100% !important; /* 强制继承父容器高度 */
+}
+
+/* 轮播滑块（包含所有轮播项） */
+.flickity-slider {
+    display: flex; /* 配合Flickity的绝对定位布局 */
+}
+
+/* ========== 单个轮播项 ========== */
+.simple-carousel-cell {
+    width: calc(33.333% - 1.5rem); /* 桌面端3列布局（33.333%宽度 - 左右间距） */
+    margin: 0 0.75rem; /* 左右间距 */
+    flex-shrink: 0; /* 防止轮播项收缩 */
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); /* 悬停动画 */
+}
+
+/* 轮播项悬停效果（PS官网经典上移+阴影） */
+.blog-post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 114, 206, 0.15); /* PS品牌蓝（#0072ce）阴影 */
+}
+
+/* 博客卡片基础样式 */
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #ffffff; /* 卡片背景色 */
+    border-radius: 12px; /* 对应HTML的border--radius-3 */
+    box-shadow: 0 2px 8px rgba(0, 35, 102, 0.08); /* 基础阴影 */
+    text-decoration: none; /* 移除链接下划线 */
+    overflow: hidden; /* 防止内容溢出圆角 */
+}
+
+/* ========== 卡片内容区域 ========== */
+/* 缩略图区域 */
+.blog-post__thumb {
+    height: 240px; /* 固定高度确保一致性 */
+}
+
+.blog-post__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 图片覆盖容器（避免变形） */
+    object-position: center; /* 图片居中 */
+}
+
+/* 内容区（标题+摘要+作者） */
+.blog-post__content {
+    padding: 1.5rem; /* 内边距 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* 内容元素间距 */
+}
+
+/* 标题 */
+.blog-post__title {
+    font-size: 1.125rem; /* 18px（PS官网常用标题字号） */
+    font-weight: 700; /* 粗体 */
+    color: #1f1f1f; /* 深灰色 */
+    line-height: 1.4; /* 行高 */
+    display: -webkit-box; /* 多行截断 */
+    -webkit-line-clamp: 2; /* 最多显示2行 */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 摘要 */
+.blog-post__excerpt {
+    font-size: 0.875rem; /* 14px（次要信息字号） */
+    color: #666666; /* 中灰色 */
+    line-height: 1.6; /* 行高 */
+    display: -webkit-box; /* 多行截断 */
+    -webkit-line-clamp: 3; /* 最多显示3行 */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 作者信息 */
+.blog-post__author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 头像与文字间距 */
+    margin-top: auto; /* 固定在卡片底部 */
+}
+
+.blog-post__author-image img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* 圆形头像 */
+}
+
+.blog-post__info-author {
+    font-size: 0.75rem; /* 12px（作者名字号） */
+    color: #333333; /* 深灰色 */
+    font-weight: 500; /* 中粗体 */
+}
+
+.blog-post__info-role {
+    font-size: 0.75rem;
+    color: #666666; /* 中灰色 */
+}
+
+.blog-post__info-date {
+    font-size: 0.75rem;
+    color: #999999; /* 浅灰色 */
+}
+
+/* ========== 轮播导航与分页 ========== */
+/* 导航按钮（Flickity默认样式覆盖） */
+.flickity-prev-next-button {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9); /* 半透明白色 */
+    box-shadow: 0 2px 8px rgba(0, 35, 102, 0.1); /* 按钮阴影 */
+}
+
+.flickity-prev-next-button:hover {
+    background: #ffffff; /* 悬停纯白 */
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+    fill: #0072ce; /* PS品牌蓝（#0072ce） */
+}
+
+/* 分页点（Flickity默认样式覆盖） */
+.flickity-page-dots {
+    bottom: -30px; /* 调整分页点位置 */
+}
+
+.flickity-page-dots .dot {
+    width: 8px;
+    height: 8px;
+    background: #c8d2e0; /* 未选中状态（浅蓝灰色） */
+    opacity: 1; /* 不透明 */
+}
+
+.flickity-page-dots .dot.is-selected {
+    background: #0072ce; /* 选中状态（品牌蓝） */
+    width: 24px; /* 选中点变宽 */
+    border-radius: 4px; /* 椭圆形状 */
+}
+
+/* ========== 响应式适配 ========== */
+@media (max-width: 768px) { /* 平板（≤768px） */
+    .simple-carousel-cell {
+        width: calc(50% - 1rem); /* 2列布局 */
+        margin: 0 0.5rem; /* 缩小间距 */
+    }
+    .blog-post__thumb {
+        height: 180px; /* 缩小缩略图高度 */
+    }
+}
+
+@media (max-width: 480px) { /* 手机（≤480px） */
+    .simple-carousel-cell {
+        width: 100%; /* 单列布局 */
+        margin: 0; /* 无左右间距 */
+    }
+    .flickity-prev-next-button {
+        display: none; /* 小屏幕隐藏导航按钮 */
+    }
+}

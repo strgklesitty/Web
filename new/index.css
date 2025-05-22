@@ -1,0 +1,186 @@
+
+.gdk .txt-block-title__title {
+  -webkit-margin-before: 0;
+  margin-block-start: 0;
+}
+.gdk .txt-style-large-title {
+  font-size: var(--text-8);
+  font-weight: 300;
+  letter-spacing: .1px;
+  line-height: 1.25em;
+  --type-margin-top: var(--space-7);
+  --type-margin-bottom: var(--space-5);
+  -webkit-margin-before: var(--type-margin-top);
+  margin-block-start: var(--type-margin-top);
+  -webkit-margin-after: var(--type-margin-bottom);
+  margin-block-end: var(--type-margin-bottom);
+  color: var(--type-custom-color, var(--type-style-color));
+  --type-style-color: var(--color-role-text-primary-base);
+}
+.gdk blockquote, .gdk dd, .gdk dl, .gdk figcaption, .gdk figure, .gdk h1, .gdk h2, .gdk h3, .gdk h4, .gdk li, .gdk ol, .gdk p, .gdk ul, body {
+  margin: 0;
+}
+
+.gdk * {
+  line-height: 1.5em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.gdk *, html {
+  -webkit-font-smoothing: antialiased;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+.gdk .table__container--comparison .table--comparison .comparison__header, .gdk .table__container--comparison .table--comparison .comparison__item, .gdk .table__container--comparison .table--comparison .comparison__item-data, .gdk .text-align--center {
+  text-align: center;
+}
+.gdk .txt-block-title {
+  --subtitle-margin: var(--space-3);
+  --block-margin: var(--space-7);
+  margin-top: var(--block-margin);
+  margin-bottom: var(--block-margin);
+}
+.gdk .age-gate__header div[class^=box], .gdk .content-grid div[class^=box], .gdk .modal[data-style=banner] .modal__content div[class^=box], .gdk .modal__grid div[class^=box], .gdk .page-banner__content div[class^=box] {
+  --animation-delay: 0.2s;
+}
+.gdk .age-gate__header, .gdk .content-grid {
+  grid-row-gap: 3rem;
+  pointer-events: all;
+  z-index: 50;
+}
+.gdk .blog-post__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  --type-margin-top: 0;
+  --type-margin-bottom: var(--space-6);
+}
+.gdk .txt-style-secondary--secondary {
+  --type-style-color: var(--color-role-text-secondary);
+}
+.gdk .txt-style-secondary {
+  font-size: var(--text-3);
+  font-weight: 400;
+  line-height: 1.5em;
+  --type-margin-top: var(--space-5);
+  --type-margin-bottom: var(--space-5);
+  -webkit-margin-before: var(--type-margin-top);
+  margin-block-start: var(--type-margin-top);
+  -webkit-margin-after: var(--type-margin-bottom);
+  margin-block-end: var(--type-margin-bottom);
+  color: var(--type-custom-color, var(--type-style-color));
+  --type-style-color: var(--color-role-text-primary-base);
+}
+.gdk blockquote, .gdk dd, .gdk dl, .gdk figcaption, .gdk figure, .gdk h1, .gdk h2, .gdk h3, .gdk h4, .gdk li, .gdk ol, .gdk p, .gdk ul, body {
+  margin: 0;
+}
+.gdk * {
+  line-height: 1.5em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.gdk *, html {
+  -webkit-font-smoothing: antialiased;
+}
+用户代理样式表
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+.gdk .surface:not(.surface--no-default-state) {
+  --shadow-color: var(--color-role-shadows-low-base);
+  box-shadow: 0 var(--space-2) var(--space-3) 0 var(--shadow-color);
+  transition: box-shadow .2sease-in-out;
+}
+.gdk .featured-hardware.slider .automated-games-list h3, .gdk .gpdc-section .accent, .gdk .gpdc-section .site-footer .footer-label, .gdk .gpdc-section .text-link, .gdk .gpdc-section a, .gdk .gpdc-section blockquote, .gdk .gpdc-section ol li:before, .gdk .gpdc-section ul li:before, .gdk .scrollMotion .accent, .gdk .scrollMotion .site-footer .footer-label, .gdk .scrollMotion .text-link, .gdk .scrollMotion a, .gdk .scrollMotion blockquote, .gdk .scrollMotion ol li:before, .gdk .scrollMotion ul li:before, .gdk .site-footer .gpdc-section .footer-label, .gdk .site-footer .scrollMotion .footer-label, .gdk .theme--light .automated-games-list h3 {
+  color: var(--color-role-text-link-base);
+}
+.gdk .featured-hardware.slider .text-link, .gdk .featured-hardware.slider a, .gdk .theme--dark .text-link, .gdk .theme--dark a, .gdk .theme--light .text-link, .gdk .theme--light a, .gdk .theme--lightAlt .text-link, .gdk .theme--lightAlt a {
+  color: var(--color-role-text-link-base);
+}
+.gdk .blog-post {
+  display: -ms-flexbox;
+  display: flex
+;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  --mobile-card-width: 1.2;
+}
+.gdk .surface {
+  cursor: pointer;
+  position: relative;
+  z-index: 29;
+}
+.gdk [class*=mesh-col] {
+  --columns: var(--mesh-column-count);
+  box-sizing: border-box;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: calc((var(--mesh-column-width)* var(--columns)) - var(--mesh-gutter));
+}
+.gdk .mesh-col-4 {
+  --mesh-column-count-desktop: 8;
+  --mesh-column-count: 4;
+}
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+}
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: grab;
+}
+.gdk .carousel {
+  direction: ltr;
+  -webkit-padding-before: 0;
+  padding-block-start: 0;
+  -webkit-padding-after: 1rem;
+  padding-block-end: 1rem;
+}
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.gdk .featured-hardware.slider, .gdk .theme--dark, .gdk .theme--dark.featured-hardware.slider .text-link, .gdk .theme--dark.featured-hardware.slider a, .gdk .theme--dark.theme--dark .text-link, .gdk .theme--dark.theme--dark a, .gdk .theme--light, .gdk .theme--light.theme--dark .text-link, .gdk .theme--light.theme--dark a, .gdk .theme--lightAlt, .gdk .theme--lightAlt.theme--dark .text-link, .gdk .theme--lightAlt.theme--dark a {
+  color: var(--color-role-text-primary-base);
+}
+
+html {
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1f1f1f;
+  font-size: var(--root-font-size);
+}
+.gdk .legal, .gdk .sst-roman, .gdk .stat-block blockquote, .gdk .stat-block h4, .gdk .stat-block h5, .gdk .stat-block p, .gdk .stat-block small, .gdk .subtitle, .gdk .text-block .legal, .gdk .text-block blockquote, .gdk .text-block h4, .gdk .text-block h5, .gdk .text-block p, .gdk .text-block small, .gdk .title-block blockquote, .gdk .title-block h4, .gdk .title-block h5, .gdk .title-block p, .gdk .title-block small, html {
+  font-family: var(--dk-font);
+  font-style: normal;
+  font-weight: 400;
+}
+html {
+  --dk-font: "sst", Arial, sans-serif;
+  --dk-font-condensed: "sst condensed", "sst", Arial, sans-serif;
+  --dk-font-bebas-neue: "bebas neue", "sst", Arial, sans-serif;
+  --dk-font-mont: "Mont W05", "sst", Arial, sans-serif;
+}

@@ -1,0 +1,175 @@
+/* ========== 轮播核心容器 ========== */
+.simple-carousel {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    overflow: hidden; /* 隐藏溢出的轮播项 */
+}
+
+/* Flickity 视口（确保高度正确） */
+.flickity-viewport {
+    height: 100% !important; /* 强制继承父容器高度 */
+}
+
+/* 轮播滑块（包含所有轮播项） */
+.flickity-slider {
+    display: flex; /* 配合Flickity的绝对定位布局 */
+}
+
+/* ========== 单个轮播项 ========== */
+.simple-carousel-cell {
+    width: calc(33.333% - 1.5rem); /* 桌面端3列布局（33.333%宽度 - 左右间距） */
+    margin: 0 0.75rem; /* 左右间距 */
+    flex-shrink: 0; /* 防止轮播项收缩 */
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); /* 悬停动画 */
+}
+
+/* 轮播项悬停效果（PS官网经典上移+阴影） */
+.blog-post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 114, 206, 0.15); /* PS品牌蓝（#0072ce）阴影 */
+}
+
+/* 博客卡片基础样式 */
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #ffffff; /* 卡片背景色 */
+    border-radius: 12px; /* 对应HTML的border--radius-3 */
+    box-shadow: 0 2px 8px rgba(0, 35, 102, 0.08); /* 基础阴影 */
+    text-decoration: none; /* 移除链接下划线 */
+    overflow: hidden; /* 防止内容溢出圆角 */
+}
+
+/* ========== 卡片内容区域 ========== */
+/* 缩略图区域 */
+.blog-post__thumb {
+    height: 240px; /* 固定高度确保一致性 */
+}
+
+.blog-post__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 图片覆盖容器（避免变形） */
+    object-position: center; /* 图片居中 */
+}
+
+/* 内容区（标题+摘要+作者） */
+.blog-post__content {
+    padding: 1.5rem; /* 内边距 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* 内容元素间距 */
+}
+
+/* 标题 */
+.blog-post__title {
+    font-size: 1.125rem; /* 18px（PS官网常用标题字号） */
+    font-weight: 700; /* 粗体 */
+    color: #1f1f1f; /* 深灰色 */
+    line-height: 1.4; /* 行高 */
+    display: -webkit-box; /* 多行截断 */
+    -webkit-line-clamp: 2; /* 最多显示2行 */
+    line-clamp:2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 摘要 */
+.blog-post__excerpt {
+    font-size: 0.875rem; /* 14px（次要信息字号） */
+    color: #666666; /* 中灰色 */
+    line-height: 1.6; /* 行高 */
+    display: -webkit-box; /* 多行截断 */
+    -webkit-line-clamp: 3; /* 最多显示3行 */
+    line-clamp: 3; /* 兼容Firefox */;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 作者信息 */
+.blog-post__author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 头像与文字间距 */
+    margin-top: auto; /* 固定在卡片底部 */
+}
+
+.blog-post__author-image img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* 圆形头像 */
+}
+
+.blog-post__info-author {
+    font-size: 0.75rem; /* 12px（作者名字号） */
+    color: #333333; /* 深灰色 */
+    font-weight: 500; /* 中粗体 */
+}
+
+.blog-post__info-role {
+    font-size: 0.75rem;
+    color: #666666; /* 中灰色 */
+}
+
+.blog-post__info-date {
+    font-size: 0.75rem;
+    color: #999999; /* 浅灰色 */
+}
+
+/* ========== 轮播导航与分页 ========== */
+/* 导航按钮（Flickity默认样式覆盖） */
+.flickity-prev-next-button {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9); /* 半透明白色 */
+    box-shadow: 0 2px 8px rgba(0, 35, 102, 0.1); /* 按钮阴影 */
+}
+
+.flickity-prev-next-button:hover {
+    background: #ffffff; /* 悬停纯白 */
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+    fill: #0072ce; /* PS品牌蓝（#0072ce） */
+}
+
+/* 分页点（Flickity默认样式覆盖） */
+.flickity-page-dots {
+    bottom: -30px; /* 调整分页点位置 */
+}
+
+.flickity-page-dots .dot {
+    width: 8px;
+    height: 8px;
+    background: #c8d2e0; /* 未选中状态（浅蓝灰色） */
+    opacity: 1; /* 不透明 */
+}
+
+.flickity-page-dots .dot.is-selected {
+    background: #0072ce; /* 选中状态（品牌蓝） */
+    width: 24px; /* 选中点变宽 */
+    border-radius: 4px; /* 椭圆形状 */
+}
+
+/* ========== 响应式适配 ========== */
+@media (max-width: 768px) { /* 平板（≤768px） */
+    .simple-carousel-cell {
+        width: calc(50% - 1rem); /* 2列布局 */
+        margin: 0 0.5rem; /* 缩小间距 */
+    }
+    .blog-post__thumb {
+        height: 180px; /* 缩小缩略图高度 */
+    }
+}
+
+@media (max-width: 480px) { /* 手机（≤480px） */
+    .simple-carousel-cell {
+        width: 100%; /* 单列布局 */
+        margin: 0; /* 无左右间距 */
+    }
+    .flickity-prev-next-button {
+        display: none; /* 小屏幕隐藏导航按钮 */
+    }
+}
